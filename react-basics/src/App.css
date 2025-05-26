@@ -1,0 +1,16 @@
+.shadow-3 {
+  box-shadow: 3px 3px 3px 3px #1a1fc6aa;
+}
+.p-2 {
+  padding-left: 2rem;
+  padding-top: 2rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+.rounded-sm {
+  border-radius: 0.25rem;
+}
+.star {
+  color: gold;
+  font-size: 2rem;
+}

@@ -1,0 +1,49 @@
+import { use } from "react";
+import "./App.css";
+
+const MyButton = () => {
+  function onClick() {
+    alert`You clicked on button`;
+  }
+  return <button onClick={onClick}>Button</button>;
+};
+
+const Page = () => {
+  return (
+    <div>
+      <h1> Hello this SPA WELCOME!! </h1>
+    </div>
+  );
+};
+const user = {
+  name: "Hirono",
+  imageUrl: "https://www.mindzai.ca/cdn/shop/files/182119236.jpg?v=1726675838",
+};
+function Profile() {
+  return (
+    <div>
+      <h1>{user.name}</h1>
+      <img
+        className="image"
+        src={user.imageUrl}
+        alt={"Photo of" + user.name}
+        style={{
+          width: user.imageSize,
+          height: user.imageSize,
+        }}
+      ></img>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <Page />
+      <MyButton />
+      <Profile />
+    </div>
+  );
+}
+
+export default App;

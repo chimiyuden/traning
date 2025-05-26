@@ -1,0 +1,44 @@
+body{
+    background-color:darkslategrey;
+    font-size: large;
+}
+h1{
+    color:rgb(8, 3, 109) 
+}
+    #Chimi{
+        color: black;
+    } 
+    .girls{
+        color: black;
+    }
+    .boys{
+        color: darkblue;
+    }
+   
+    
+
+.girls:hover{
+    color: cornflowerblue;
+}
+    .girls1{
+        color:darkgreen;
+        font-size: xx-large;
+    }
+    .girls2{
+        color:hotpink;
+        font:400;
+    }
+    .girls3{
+        color: brown;
+        font-size: xx-large;
+    }
+    #karma{
+        color:b=darkblue;
+    }
+    .boys:hover{
+        color:black;
+    }
+    .boys5{
+        color: chocolate;
+        font: 900;
+    }
