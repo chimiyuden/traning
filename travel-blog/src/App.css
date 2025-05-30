@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    to bottom right,
+    #d1c4e9,
+    #bbdefb
+  ); /* twilight lavender to periwinkle */
+  font-family: "Quicksand", "Comic Sans MS", cursive, sans-serif;
+  color: #4a148c; /* deep twilight purple */
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 20px 0;
+  color: #ce93d8; /* soft orchid */
+  text-shadow: 2px 2px 6px rgba(206, 147, 216, 0.4); /* dreamy glow */
+}
+
+h2 {
+  font-size: 2rem;
+  color: #7986cb; /* dreamy dusk blue */
+  margin-top: 40px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #6a1b9a; /* twilight plum */
+}
+
+input[type="text"] {
+  padding: 12px;
+  margin: 10px;
+  width: 60%;
+  border-radius: 20px;
+  border: 2px solid #e1bee7;
+  background-color: #f3e5f5;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(123, 31, 162, 0.2);
+}
+
+input[type="checkbox"] {
+  transform: scale(1.3);
+  margin-right: 10px;
+  accent-color: #fdd835; /* moonlight yellow */
+}
+
+.title,
+.des,
+.note {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.button {
+  margin: 20px;
+}
+
+button {
+  padding: 12px 24px;
+  margin: 10px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    #e3f2fd,
+    #fce4ec
+  ); /* moonlight to blush */
+  color: #512da8;
+  font-weight: bold;
+  box-shadow: 0 6px 12px rgba(179, 136, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(to right, #fce4ec, #e3f2fd);
+}
+
+button.delete {
+  background: linear-gradient(
+    to right,
+    #f8bbd0,
+    #ffccbc
+  ); /* rosy blush to peach */
+}
+
+button.delete:hover {
+  background: linear-gradient(to right, #ffccbc, #f8bbd0);
+}
+
+button.update {
+  background: linear-gradient(
+    to right,
+    #b39ddb,
+    #90caf9
+  ); /* lavender to blue mist */
+}
+
+button.update:hover {
+  background: linear-gradient(to right, #90caf9, #b39ddb);
+}
+
+.todo-item {
+  background-color: #f3e5f5;
+  border: 3px dotted #ce93d8;
+  padding: 20px;
+  margin: 20px auto;
+  width: 70%;
+  border-radius: 30px;
+  box-shadow: 0 8px 16px rgba(123, 31, 162, 0.2);
+  transition: transform 0.3s ease;
+  text-align: left;
+  position: relative;
+}
+
+.todo-item:hover {
+  transform: scale(1.02);
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+  color: #9e9e9e;
+}
+
+/* Optional sparkle effect */
+.todo-item::after {
+  content: "✨";
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.2rem;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
