@@ -76,7 +76,7 @@ const Nav = () => {
   return (
     <nav style={styles.nav}>
       <Link to="/" style={styles.logo}>
-        ✿ ChimsMiniBlog
+        ✿ ChimiskiMiniBlog
       </Link>
 
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
