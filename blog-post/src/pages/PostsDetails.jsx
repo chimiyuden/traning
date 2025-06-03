@@ -1,53 +1,62 @@
-// import { useEffect, useState } from "react";
-// import { useParams, useNavigate } from "react-router-dom";
-// import api from "../services/api";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { getComments, getPost } from "../services/Api.config";
 
-// function PostDetail() {
-//   const { id } = useParams();
-//   const navigate = useNavigate();
-//   const [post, setPost] = useState(null);
-//   const [comments, setComments] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
+const Comment = () => {
+  const { id } = useParams();
+  const [posts, setPosts] = useState([]);
+  const [comments, setComment] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const fetchComment = async () => {
+      setLoading(true);
+      try {
+        const fetchPost = await getPost(id);
+        setPosts(fetchPost.data);
+        const fetchComment = await getComments(id);
+        setComment(fetchComment.data);
+      } catch (error) {
+        console.log(error);
+        setError(error);
+      }
+      setLoading(false);
+    };
+    fetchComment();
+  }, [id]);
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const [postRes, commentsRes] = await Promise.all([
-//           api.get(`/posts/${id}`),
-//           api.get(`/posts/${id}/comments`),
-//         ]);
-//         setPost(postRes.data);
-//         setComments(commentsRes.data);
-//       } catch {
-//         setError("Failed to load post or comments");
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
+  if (loading) {
+    return <div>Page loading</div>;
+  }
+  if (!posts) {
+    return <div>Failed to load post or comments </div>;
+  }
+  if (error) {
+    return <div>Not found </div>;
+  }
 
-//     fetchData();
-//   }, [id]);
+  return (
+    <div>
+      <Link to="/">
+        <h2>&larr; Back to Posts</h2>
+      </Link>
+      <h1>{posts.title}</h1>
+      <h5>{posts.body}</h5>
+      <h2> comments </h2>
+      <div>
+        <ul>
+          {comments.map((comment) => (
+            <li key={comment.id}>
+              <h4>{comment.name}</h4>
+              <p>{comment.body}</p>
+              <p>{comment.email}</p>
+            </li>
+          ))}
+        </ul>
+        :
+      </div>
+    </div>
+  );
+};
 
-//   if (loading) return <p>Loading post...</p>;
-//   if (error) return <p>{error}</p>;
-
-//   return (
-//     <div style={{ padding: "20px" }}>
-//       <button onClick={() => navigate(-1)}>← Back to Posts</button>
-//       <h1>{post.title}</h1>
-//       <p>{post.body}</p>
-//       <h2>Comments</h2>
-//       <ul>
-//         {comments.map((comment) => (
-//           <li key={comment.id}>
-//             <strong>{comment.name}</strong> ({comment.email})
-//             <p>{comment.body}</p>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
-
-// export default PostDetail;
+export default Comment;
