@@ -36,24 +36,23 @@ const Comment = () => {
   }
 
   return (
-    <div>
-      <Link to="/">
-        <h2>&larr; Back to Posts</h2>
+    <div className="comment-container">
+      <Link to="/" className="comment-back">
+        &larr; Back to Posts
       </Link>
-      <h1>{posts.title}</h1>
-      <h5>{posts.body}</h5>
-      <h2> comments </h2>
-      <div>
+      <h1 className="comment-post-title">{posts.title}</h1>
+      <h5 className="comment-post-body">{posts.body}</h5>
+      <div className="comments-section">
+        <h2>Comments</h2>
         <ul>
           {comments.map((comment) => (
-            <li key={comment.id}>
+            <li key={comment.id} className="comment-card">
               <h4>{comment.name}</h4>
               <p>{comment.body}</p>
               <p>{comment.email}</p>
             </li>
           ))}
         </ul>
-        :
       </div>
     </div>
   );

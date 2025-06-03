@@ -42,25 +42,25 @@ const PostsList = () => {
   }
 
   return (
-    <div>
+    <div className="container posts-list">
       <h1>Blog Posts</h1>
-      <input
-        placeholder="Search posts"
-        value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
+      <div className="search-bar">
+        <input
+          placeholder="Search posts"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+        <button onClick={handleSearch}>Search</button>
+      </div>
       {filteredPosts.length > 0 ? (
         filteredPosts.map((post) => (
-          <div key={post.id}>
-            <Link to={`/posts/${post.id}`}>
-              <h3>{post.title}</h3>
-              <p>{post.body}</p>
-            </Link>
-          </div>
+          <Link to={`/posts/${post.id}`} key={post.id} className="post-card">
+            <h3>{post.title}</h3>
+            <p>{post.body}</p>
+          </Link>
         ))
       ) : (
-        <p>No posts found.</p>
+        <p className="no-posts">No posts found.</p>
       )}
     </div>
   );
